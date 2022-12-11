@@ -6,27 +6,28 @@
 
 $(call inherit-product, device/xiaomi/phoenix/device.mk)
 
-# Inherit some common riceDroid stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Xtended stuff.
+$(call inherit-product, vendor/xtended/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_phoenix
+PRODUCT_NAME := xtended_phoenix
 PRODUCT_DEVICE := phoenix
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO X2
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-# riceDroid Stuff with GApps
+# Xtended Stuff with GApps
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 TARGET_BUILD_GRAPHENEOS_CAMERA := true
-TARGET_OPTOUT_GOOGLE_TELEPHONY := true
 TARGET_BUILD_APERTURE_CAMERA := false
-TARGET_USE_PIXEL_FINGERPRINT := true
-SUSHI_BOOTANIMATION  := 1080
+TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_ENABLE_BLUR := true
-WITH_GMS := true
+WITH_GAPPS := true
 
-# Maintainer Stuff
-RICE_MAINTAINER := SharmaG
-RICE_OFFICIAL := true
+# Fingerprint
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="raven-user 13 TP1A.221005.002 9012097 release-keys"
+
+BUILD_FINGERPRINT := "google/raven/raven:13/TP1A.221005.002/9012097:user/release-keys"
+
